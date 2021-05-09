@@ -1,7 +1,6 @@
 # upload
 
 ## Requirements
-
 1. Primary document owner should be able to upload a document to the service using signeasy app [P0]
 2. Permitted users should be able to view/download the document using the app [P0]
 3. Each user should be able to add a signature and upload the modified document [P0]
@@ -12,20 +11,17 @@
 ## Basic MVP
 ![upload_basic_mvp](https://user-images.githubusercontent.com/34787500/117580673-b3456b00-b116-11eb-8815-b835d4e07301.png)
 
-#### Upload service
-  receives stream of file data to be uploaded
-  
-#### Download service
-  client pulls the stream of file data from the download service
-  
-#### Object store
-  maintains uploaded files (cannot modify)
- 
-#### Metadata store
-  maintains information about file upload location, primary user, participating user 
+###### Upload service
+  Creates a unique document id, and returns a signed URL for the client to upload the file to object store.
+###### Download service
+  Provides details of the object store file download URL. 
+###### Object store (eg: Amazon S3)
+  Maintains uploaded files (cannot modify). An object store (S3) is preferred to block store(EBS) as majority use-case involves read of file. Also a small portion of the file (signature area) alone will get modified.
+###### Metadata store (eg: MongoDB)
+  Maintains information about file upload location, primary user, participating user. Majority of times, all metadata information w.r.t the document need to be fetched - hence suggest using document store like mongoDB.
 
 ###### Advantages:
-  - Simple framework - could horizontally scale upload and download service
+  - Simple framework - quick to productize - could horizontally scale upload and download service
   - Could be used when number of participants for a document is very less, say 2 to 3.
 ###### Disadvantages:
   - Uploading/Downloading medium to large files could take a long time (improvements could be made using multi-part upload and partial download/streaming)
