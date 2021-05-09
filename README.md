@@ -38,7 +38,7 @@ The **most critical portion of the whole process is breaking the files into mult
     - small byte transfer and quick synchornization of signature changes
   
 #### Concurrent modification 
-By having each signature portion in a separate chunk - concurrent modification to the same chunk could be avoided. Incase same chunk needs to be modified by multiple users operational transformation or CRDT methodologies needs to be incorporated.
+By having each signature portion in a separate chunk - concurrent modification to the same chunk could be avoided. Incase same chunk needs to be modified by multiple users "operational transformation" or CRDT methodologies needs to be incorporated.
   
 
 
