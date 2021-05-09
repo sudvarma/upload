@@ -18,7 +18,7 @@
 ###### Object store (eg: Amazon S3)
   Maintains uploaded files (cannot modify). An object store (S3) is preferred to block store(EBS) as majority use-case involves read of file. Also a small portion of the file (signature area) alone will get modified.
 ###### Metadata store (eg: MongoDB)
-  Maintains information about file upload location, primary user, participating user. Majority of times, all metadata information w.r.t the document need to be fetched - hence suggest using document store like mongoDB.
+  Maintains information about file upload location, primary user, participating user. Majority of times, all metadata information w.r.t a particular document need to be fetched - hence suggest using document store like mongoDB.
 
 ###### Advantages:
   - Simple framework - quick to productize - could horizontally scale upload and download service
