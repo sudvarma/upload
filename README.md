@@ -28,7 +28,6 @@
   - To avoid conflicts users should download latest copy before uploading modification
 
  ## Breaking files - chunks
- 
 The **most critical portion of the whole process is breaking the files into multiple chunks**, this should effectively reduce the time consumed in upload/download of large files. Below are a few advantages of breaking the files into chunks.
 1. Should increase the upload speed as multiple chunks could be uploaded together.
 2. Only the modified portion of files needs to be uploaded. (checksum should help identify the modified chunks)
@@ -37,6 +36,8 @@ The **most critical portion of the whole process is breaking the files into mult
     - avoiding complex concurrent merging of chunks
     - small byte transfer and quick synchornization of signature changes
   
+## Concurrent modification 
+By having each signature portion in a separate chunk - concurrent modification to the same chunk could be avoided. Incase same chunk needs to be modified by multiple users operational transformation or CRDT methodologies needs to be incorporated.
   
 
 
