@@ -9,7 +9,7 @@
 6. Primary document owner should be able to upload via mail, or provide a reference to file in alternate cloud storage [P1]
 
 ## Basic MVP
-![upload_basic_mvp](https://user-images.githubusercontent.com/34787500/117580673-b3456b00-b116-11eb-8815-b835d4e07301.png)
+![upload basic mvp](https://user-images.githubusercontent.com/34787500/117582300-ff94a900-b11e-11eb-838b-8b03ad69290e.png)
 
 ###### Upload service
   Creates a unique document id, and returns a signed URL for the client to upload the file to object store.
