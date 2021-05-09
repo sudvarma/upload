@@ -12,16 +12,16 @@
 ## Basic MVP
 ![upload_basic_mvp](https://user-images.githubusercontent.com/34787500/117580673-b3456b00-b116-11eb-8815-b835d4e07301.png)
 
-- Upload service
+#### Upload service
   receives stream of file data to be uploaded
   
-- Download service
+#### Download service
   client pulls the stream of file data from the download service
   
-- Object store
+#### Object store
   maintains uploaded files (cannot modify)
  
-- Metadata store
+#### Metadata store
   maintains information about file upload location, primary user, participating user 
 
 ###### Advantages:
