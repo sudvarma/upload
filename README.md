@@ -11,19 +11,19 @@
 ## Basic MVP
 ![upload basic mvp (2)](https://user-images.githubusercontent.com/34787500/117582389-65813080-b11f-11eb-9ee6-bbfdeb21b849.png)
 
-###### Upload service
+#### Upload service
   Creates a unique document id, and returns a signed URL for the client to upload the file to object store.
-###### Download service
+#### Download service
   Provides details of file download URL from the object store 
-###### Object store (eg: Amazon S3)
+#### Object store (eg: Amazon S3)
   Maintains uploaded files (cannot modify). An object store (S3) is preferred to block store(EBS) as majority use-case involves read of file. Also a small portion of the file (signature area) alone will get modified.
-###### Metadata store (eg: MongoDB)
+#### Metadata store (eg: MongoDB)
   Maintains information about file upload location, primary user, participating user. Majority of times, all metadata information w.r.t a particular document need to be fetched - hence suggest using document store like mongoDB.
 
-###### Advantages:
+#### Advantages:
   - Simple framework - quick to productize - could horizontally scale upload and download service
   - Could be used when number of participants for a document is very less, say 2 to 3.
-###### Disadvantages:
+#### Disadvantages:
   - Uploading/Downloading medium to large files could take a long time (improvements could be made using multi-part upload and partial download/streaming)
   - To avoid conflicts users should download latest copy before uploading modification
 
