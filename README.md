@@ -27,7 +27,7 @@
   - Uploading/Downloading medium to large files could take a long time (improvements could be made using multi-part upload and partial download/streaming)
   - To avoid conflicts users should download latest copy before uploading modification
 
-## MVP Imporovements
+## MVP Improvements
 #### Breaking files - chunks
 The **most critical portion of the whole process is breaking the files into multiple chunks**, this should effectively reduce the time consumed in upload/download of large files. Below are a few advantages of breaking the files into chunks.
 1. Should increase the upload speed as multiple chunks could be uploaded together.
