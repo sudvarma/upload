@@ -14,7 +14,7 @@
 ###### Upload service
   Creates a unique document id, and returns a signed URL for the client to upload the file to object store.
 ###### Download service
-  Provides details of the object store file download URL. 
+  Provides details of file download URL from the object store 
 ###### Object store (eg: Amazon S3)
   Maintains uploaded files (cannot modify). An object store (S3) is preferred to block store(EBS) as majority use-case involves read of file. Also a small portion of the file (signature area) alone will get modified.
 ###### Metadata store (eg: MongoDB)
