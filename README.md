@@ -57,5 +57,14 @@ The mobile app plays a key role in breaking the file to mutiple chunks. Below ar
 - Further upload service could push the necessary signature area chunks info to the cache server and the static chunks to CDN (optional)
 - once upload is completed the upload service could be notified of success and ready state.
   
+## Improvised Architecture
+![upload-improvised](https://user-images.githubusercontent.com/34787500/117676079-da5d7480-b1ca-11eb-977b-9130c48f9750.png)
 
+#### Advantages
+- Upload in chucks could really boost upload speeds.
+- The new flow of pushing the uploaded static chunks to edge servers and dynamic chunks to a distributed cache respectively, should really help in speeding up download of files for various participants of the document. 
+
+#### Disadvantages
+- Confidential files to edge servers (The files could be stored in encrypted format, so that the facility could be extended to confidentual documents too)
+- Edge servers and distributed cache may cost slightly on the higher side compared to S3. (The provision could be extended only to enterprises)
 
