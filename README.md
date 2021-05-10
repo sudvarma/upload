@@ -29,7 +29,7 @@
 
 ## MVP Improvements
 #### Breaking files - chunks
-![document-chunks](https://user-images.githubusercontent.com/34787500/117598495-8a989200-b165-11eb-9cdf-fb0cde9c04a5.png)
+![document-chunks (1)](https://user-images.githubusercontent.com/34787500/117602875-54f8a680-b16f-11eb-8892-bf80b5335392.png)
 
 The **most critical portion of the whole process is breaking the files into multiple chunks**, this should effectively reduce the time consumed in upload/download of large files. Below are a few advantages of breaking the files into chunks.
 1. Should increase the upload speed as multiple chunks could be uploaded together.
@@ -37,7 +37,7 @@ The **most critical portion of the whole process is breaking the files into mult
 3. Each signature portion being broken into separate chunk 
     - may help in providing better fine-grained access control
     - avoiding complex concurrent merging of chunks
-    - small byte transfer and quick synchornization of signature changes
+    - small byte transfer and quick synchornization of signature changes (signature streaming)
   
 #### Concurrent modification 
 By having each signature portion in a separate chunk - concurrent modification to the same chunk could be avoided. Incase same chunk needs to be modified by multiple users "operational transformation" or CRDT methodologies needs to be incorporated.
