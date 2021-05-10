@@ -11,9 +11,9 @@
 ## Basic MVP
 ![upload basic mvp (2)](https://user-images.githubusercontent.com/34787500/117582389-65813080-b11f-11eb-9ee6-bbfdeb21b849.png)
 
-#### Upload service
-  Creates metdata for the document, includes a unique document id, a signed URL for the client to upload the file to object store and file size details. The signed URL returned as part of the metadata details reponse would be used by the client to upload the document to the document store.
-#### Download service
+#### Upload service [Post API]
+  Creates metdata for the document, includes a unique document id, a signed URL for the client to upload the file to object store, associated users, user permissions and file size details. The signed URL returned as part of the metadata details reponse would be used by the client to upload the document to the document store.
+#### Download service [Get API]
   Fetches all the document related metadata regarding the document using the unique document id. The returned metadata would include the file download URL from the object store 
 #### Object store (eg: Amazon S3)
   Maintains uploaded files (cannot modify). An object store (S3) is preferred to block store(EBS) as majority use-case involves read of file. Also a small portion of the file (signature area) alone will get modified.
