@@ -77,3 +77,14 @@ With breaking signature area in to separate chunks, changes to signature could b
 Each signature chunk could be modified only to the chunk owner or the respective signature chunk particpant alone.
 #### Priority Chunk
 Each particpant may be intrested in certain chunks to be loaded first, as they may have to sign in that area. So priority of chunks per user could be held in the metadata.
+#### Signature chunk identification
+With large number of document repository,  machine learning techniques could be established in identifying signature chunks. Supervised classification algorithm could help in classifying chunks into signature chunk or non-signature chunk.
+
+## API
+Though the earlier diagrams talk about upload / download service they POST and GET operation of the same metadata API.
+#### Sample API request
+
+#### Sample API response
+
+## Further scaling
+The services introduced are all horizontally scalable and should help in acheiving the non-functional requirements. They could also be replicated in multiple availablity zones to take care of DR.
