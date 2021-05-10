@@ -81,7 +81,8 @@ Each particpant may be intrested in certain chunks to be loaded first, as they m
 With large number of document repository,  machine learning techniques could be established in identifying signature chunks. Supervised classification algorithm could help in classifying chunks into signature chunk or non-signature chunk.
 
 ## API
-Though the earlier diagrams talk about upload / download service they POST and GET operation of the same metadata API.
+Though the earlier diagrams talk about upload / download service separetly those are POST and GET operation of the same metadata API. It was shown separetly to suggest download can be scaled independently of upload - as mostly download volumes could 10-100 times higher than upload.
+
 #### Sample API request
 
 #### Sample API response
