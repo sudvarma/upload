@@ -1,12 +1,17 @@
 # upload
 
 ## Requirements
+#### Functional Requirements
 1. Primary document owner should be able to upload a document to the service using signeasy app [P0]
 2. Permitted users should be able to view/download the document using the app [P0]
 3. Each user should be able to add a signature and upload the modified document [P0]
 4. Users associated with the document should be able to view/download the modified version [P0]
 5. Users associated with the document should be notified of changes [P1]
 6. Primary document owner should be able to upload via mail, or from alternate cloud storage [P1]
+
+#### Non-functional Requirements
+1. Latency to upload / download <= 4 seconds for 5 MB of file size for 95pc of customers
+2. scale to a concurrency of 1000 simultaneous uploads / downloads
 
 ## Basic MVP
 ![upload basic mvp (2)](https://user-images.githubusercontent.com/34787500/117582389-65813080-b11f-11eb-9ee6-bbfdeb21b849.png)
@@ -42,6 +47,15 @@ The **most critical portion of the whole process is breaking the files into mult
   
 #### Concurrent modification 
 By having each signature portion in a separate chunk - concurrent modification to the same chunk could be avoided. Incase same chunk needs to be modified by multiple users "operational transformation" or CRDT methodologies needs to be incorporated.
+
+## Clientside App - Chunking
+The app plays a key role in chunking the file to mutiple chunks. Below are steps to upload file from the client :
+- The primary document owner could mark the signature areas
+- The remaining file could be broken into equal chunks
+- The metadata information of the file, chunks count, chunk order etc to be send to the upload service
+- Upload service responds with the document id and signed urls for each of the chunk to be uploaded to S3
+- Further upload service could push the necessary signature area chunks info to the cache server and the static chunks to CDN (optional)
+- once upload is completed the upload service could be notified of success and ready state.
   
 
 
