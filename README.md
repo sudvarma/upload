@@ -6,15 +6,15 @@
 3. Each user should be able to add a signature and upload the modified document [P0]
 4. Users associated with the document should be able to view/download the modified version [P0]
 5. Users associated with the document should be notified of changes [P1]
-6. Primary document owner should be able to upload via mail, or provide a reference to file in alternate cloud storage [P1]
+6. Primary document owner should be able to upload via mail, or from alternate cloud storage [P1]
 
 ## Basic MVP
 ![upload basic mvp (2)](https://user-images.githubusercontent.com/34787500/117582389-65813080-b11f-11eb-9ee6-bbfdeb21b849.png)
 
 #### Upload service
-  Creates a unique document id, and returns a signed URL for the client to upload the file to object store.
+  Creates metdata for the document, includes a unique document id, a signed URL for the client to upload the file to object store and file size details. The signed URL returned as part of the metadata details reponse would be used by the client to upload the document to the document store.
 #### Download service
-  Provides details of file download URL from the object store 
+  Fetches all the document related metadata regarding the document using the unique document id. The returned metadata would include the file download URL from the object store 
 #### Object store (eg: Amazon S3)
   Maintains uploaded files (cannot modify). An object store (S3) is preferred to block store(EBS) as majority use-case involves read of file. Also a small portion of the file (signature area) alone will get modified.
 #### Metadata store (eg: MongoDB)
@@ -29,6 +29,7 @@
 
 ## MVP Improvements
 #### Breaking files - chunks
+![document-chunks](https://user-images.githubusercontent.com/34787500/117598495-8a989200-b165-11eb-9cdf-fb0cde9c04a5.png)
 The **most critical portion of the whole process is breaking the files into multiple chunks**, this should effectively reduce the time consumed in upload/download of large files. Below are a few advantages of breaking the files into chunks.
 1. Should increase the upload speed as multiple chunks could be uploaded together.
 2. Only the modified portion of files needs to be uploaded. (checksum should help identify the modified chunks)
