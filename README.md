@@ -75,3 +75,5 @@ Cloud providers provide a notification service on receiving emails, on receiving
 With breaking signature area in to separate chunks, changes to signature could be live-streamed to other participants in the document. We could use a websocket/ chat server design approach to live stream signatures across to multiple particpants
 #### Fine-grained access control
 Each signature chunk could be modified only to the chunk owner or the respective signature chunk particpant alone.
+#### Priority Chunk
+Each particpant may be intrested in certain chunks to be loaded first, as they may have to sign in that area. So priority of chunks per user could be held in the metadata.
