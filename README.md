@@ -49,7 +49,7 @@ The **most critical portion of the whole process is breaking the files into mult
 By having each signature portion in a separate chunk - concurrent modification to the same chunk could be avoided. Incase same chunk needs to be modified by multiple users "operational transformation" or CRDT methodologies needs to be incorporated.
 
 ## Clientside App - Chunking
-The app plays a key role in chunking the file to mutiple chunks. Below are steps to upload file from the client :
+The app plays a key role in breaking the file to mutiple chunks. Below are steps to upload file from the client :
 - The primary document owner could mark the signature areas
 - The remaining file could be broken into equal chunks
 - The metadata information of the file, chunks count, chunk order etc to be send to the upload service
