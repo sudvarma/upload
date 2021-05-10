@@ -37,7 +37,8 @@ The **most critical portion of the whole process is breaking the files into mult
 3. Each signature portion being broken into separate chunk 
     - may help in providing better fine-grained access control
     - avoiding complex concurrent merging of chunks
-    - small byte transfer and quick synchornization of signature changes (signature streaming)
+    - small byte transfer and quick synchornization of signature changes (realtime signature streaming)
+    - help in separating static and dynamic chunks (static chunks could move to CDN and dynamic chunks could be in memory)
   
 #### Concurrent modification 
 By having each signature portion in a separate chunk - concurrent modification to the same chunk could be avoided. Incase same chunk needs to be modified by multiple users "operational transformation" or CRDT methodologies needs to be incorporated.
