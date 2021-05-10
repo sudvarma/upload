@@ -30,6 +30,7 @@
 ## MVP Improvements
 #### Breaking files - chunks
 ![document-chunks](https://user-images.githubusercontent.com/34787500/117598495-8a989200-b165-11eb-9cdf-fb0cde9c04a5.png)
+
 The **most critical portion of the whole process is breaking the files into multiple chunks**, this should effectively reduce the time consumed in upload/download of large files. Below are a few advantages of breaking the files into chunks.
 1. Should increase the upload speed as multiple chunks could be uploaded together.
 2. Only the modified portion of files needs to be uploaded. (checksum should help identify the modified chunks)
