@@ -68,3 +68,10 @@ The mobile app plays a key role in breaking the file to mutiple chunks. Below ar
 - Confidential files to edge servers (The files could be stored in encrypted format, so that the facility could be extended to confidentual documents too)
 - Edge servers and distributed cache may cost slightly on the higher side compared to S3. (The provision could be extended only to enterprises)
 
+## Additional Features
+#### Files via email
+Cloud providers provide a notification service on receiving emails, on receiving these notification a serverless function can be started to extract attachment from email and call upload service and upload to S3.
+#### Realtime signature streaming
+With breaking signature area in to separate chunks, changes to signature could be live-streamed to other participants in the document. We could use a websocket/ chat server design approach to live stream signatures across to multiple particpants
+#### Fine-grained access control
+Each signature chunk could be modified only to the chunk owner or the respective signature chunk particpant alone.
