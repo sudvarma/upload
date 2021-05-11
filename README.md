@@ -17,7 +17,7 @@
 [Additional Features](#additional-features)
   * [Files via email](#files-via-email)
   * [Realtime signature streaming](#realtime-signature-streaming)
-  * [Fine grained access control(#fine-grained-access-control)
+  * [Fine grained access control](#fine-grained-access-control)
   * [Priority Chunk](#priority-chunk)
   * [Signature chunk identification](#signature-chunk-identification)
   * [Push notification](#push-notification)
