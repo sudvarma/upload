@@ -85,6 +85,7 @@ The mobile app plays a key role in breaking the file to mutiple chunks. Below ar
   
 ## Improvised Architecture
 ![upload-improvised](https://user-images.githubusercontent.com/34787500/117676079-da5d7480-b1ca-11eb-977b-9130c48f9750.png)
+
 In the new additional flow - uploaded notification from the object store(s3) could spin off a servlerless function(eg: AWS lambda) that pushes the relevant chunks to a distributed cache(eg: redis) and to CDN or edge servers(AWS cloudfront). Only the signature chunk or priority chunk alone would move to the cache - there by keeping memory usage limited. 
 
 #### Advantages
