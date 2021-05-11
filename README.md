@@ -1,4 +1,30 @@
-# upload
+# File upload / download service
+
+[Requirements](#requirements)
+* [Functional Requirements](#functional-requirements)
+* [Non-functional Requirements](#non-functional-requirements)
+
+[Basic MVP](#basic-mvp)
+
+[MVP Improvements](#mvp-improvements)
+* [Breaking files - chunks](#breaking-files---chunks)
+* [Concurrent modification](#concurrent-modification)
+
+[Clientside App - Chunking](#clientside-app---chunking)
+
+[Improvised Architecture](#improvised-architecture)
+
+[Additional Features](#additional-features)
+  * [Files via email](#files-via-email)
+  * [Realtime signature streaming](#realtime-signature-streaming)
+  * [Fine grained access control(#fine-grained-access-control)
+  * [Priority Chunk](#priority-chunk)
+  * [Signature chunk identification](#signature-chunk-identification)
+  * [Push notification](#push-notification)
+
+ [API](#api)
+ 
+ [Further Scaling](#further-scaling)
 
 ## Requirements
 #### Functional Requirements
@@ -74,7 +100,7 @@ In the new additional flow - uploaded notification from the object store(s3) cou
 Cloud providers provide a notification service on receiving emails, on receiving these notification a serverless function can be started to extract attachment from email and call upload service and upload to S3.
 #### Realtime signature streaming
 With breaking signature area in to separate chunks, changes to signature could be live-streamed to other participants in the document. We could use a websocket/ chat server design approach to live stream signatures across to multiple particpants
-#### Fine-grained access control
+#### Fine grained access control
 Each signature chunk could be modified only to the chunk owner or the respective signature chunk particpant alone.
 #### Priority Chunk
 Each particpant may be intrested in certain chunks to be loaded first, as they may have to sign in that area. So priority of chunks per user could be held in the metadata.
