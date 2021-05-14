@@ -117,7 +117,13 @@ Once modified chunks are uploaded a serveless function(AWS lamda) could trigger 
 ## Ambitious - next steps
 ![ambitious](https://user-images.githubusercontent.com/34787500/118260725-46dcba00-b4d0-11eb-99fb-24a346adcda3.png)
 
-Think beyond static chunks and acheiving cloud provider neutrality. In a way to speed-up upload/download we may get more and more closely tied to the cloud provider(AWS) and later a migration to a different provider may be a huge task. Breaking the file to a grid comprising of cells is an attempt to have APIs that are cloud provider neutral. Inspiration has been taken from geo-spatial indexing.
+Thinking beyond static chunks and acheiving cloud provider neutrality. In a way to speed-up upload/download we may get more and more closely tied to the cloud provider(AWS) and later a migration to a different provider may be a huge task. Breaking the file to a grid comprising of cells is an attempt to have APIs that are cloud provider neutral. Inspiration has been taken from geo-spatial indexing.
+
+- api would tak in terms of cells, say upload cells 10-10000
+- get cells 3000-4000
+
+These calls would translate appropriate cloud provider call, there by acheiving neutrality.
+Also upload and download speed may vary from one particpant to another - there by api could deal with dynamic size of upload/download chunks.
 
 ## API
 Though the earlier diagrams talk about upload / download service separetly those are POST and GET operation of the same metadata API. It was shown separetly to suggest download can be scaled independently of upload - as mostly download volumes could 10-100 times higher than upload.
