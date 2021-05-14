@@ -123,16 +123,29 @@ Think beyond static chunks and acheiving cloud provider neutrality. In a way to 
 Though the earlier diagrams talk about upload / download service separetly those are POST and GET operation of the same metadata API. It was shown separetly to suggest download can be scaled independently of upload - as mostly download volumes could 10-100 times higher than upload.
 API: /upload
  POST
+ 
   /upload
+  
  GET
+ 
   /upload/<document_id>
+  
  PUT
+ 
   /upload/<document_id>
+  
  DELETE
+ 
   /upload/<document_id>
+  
 #### Sample API request
-
+    - file chunk sizes
+    - file primary owner
+    - file particpating user
+    - participating user to chunk mapping
 #### Sample API response
+    - document id
+    - each chunk s3 upload url
 
 ## Further scaling
 The services introduced are all horizontally scalable and should help in acheiving the non-functional requirements. They could also be replicated in multiple availablity zones to take care of DR.
@@ -140,11 +153,11 @@ The services introduced are all horizontally scalable and should help in acheivi
 ## Rough Estimates
 Requirement : Latency to upload / download <= 4 seconds for 5 MB of file size for 95pc of customer
  Majority of the latest phones comes with 4 core to 8 core processor.
- Worst case upload speed on mobile network could vary 500kbps to 5MBPS
+ Worst case upload speed on mobile network could vary 500kbps to 10MbPS
  Decent download speed on mobile network could vary from 10 to 40MBPS
  
- With 1 Mbps upload speed a 5 MB file would on a single thread would take > 5 seconds.
- On a 4 core processor breaking it to 4 chunks should take ~1second.
+ With 3 Mbps upload speed a 5 MB file would on a single thread would take > 10 seconds.
+ On a 4 core processor breaking it to 4 chunks should take ~ 1/4th time.
  
  Also S3 could scale horizontally with support of large number of concurrent connections (3000-5000). Further fine-tuning is possible with file naming convention and  including varying prefixes of file name also should help.
  
