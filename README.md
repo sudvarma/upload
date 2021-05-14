@@ -14,6 +14,8 @@
 
 [Improvised Architecture](#improvised-architecture)
 
+[Ambitious - next steps](#ambitious---next steps)
+
 [Additional Features](#additional-features)
   * [Files via email](#files-via-email)
   * [Realtime signature streaming](#realtime-signature-streaming)
@@ -25,6 +27,8 @@
  [API](#api)
  
  [Further Scaling](#further-scaling)
+ 
+ [Rough Estimates](#rough-estimates)
 
 ## Requirements
 #### Functional Requirements
@@ -110,12 +114,37 @@ With large number of document repository,  machine learning techniques could be 
 #### Push notification
 Once modified chunks are uploaded a serveless function(AWS lamda) could trigger a push notification to the relevant particpants about the new modified chunk. The app could decide pull the changes from the server/cache. 
 
+## Ambitious - next steps
+![ambitious](https://user-images.githubusercontent.com/34787500/118260725-46dcba00-b4d0-11eb-99fb-24a346adcda3.png)
+
+Think beyond static chunks and acheiving cloud provider neutrality. In a way to speed-up upload/download we may get more and more closely tied to the cloud provider(AWS) and later a migration to a different provider may be a huge task. Breaking the file to a grid comprising of cells is an attempt to have APIs that are cloud provider neutral. Inspiration has been taken from geo-spatial indexing.
+
 ## API
 Though the earlier diagrams talk about upload / download service separetly those are POST and GET operation of the same metadata API. It was shown separetly to suggest download can be scaled independently of upload - as mostly download volumes could 10-100 times higher than upload.
-
+API: /upload
+ POST
+  /upload
+ GET
+  /upload/<document_id>
+ PUT
+  /upload/<document_id>
+ DELETE
+  /upload/<document_id>
 #### Sample API request
 
 #### Sample API response
 
 ## Further scaling
 The services introduced are all horizontally scalable and should help in acheiving the non-functional requirements. They could also be replicated in multiple availablity zones to take care of DR.
+
+## Rough Estimates
+Requirement : Latency to upload / download <= 4 seconds for 5 MB of file size for 95pc of customer
+ Majority of the latest phones comes with 4 core to 8 core processor.
+ Worst case upload speed on mobile network could vary 500kbps to 5MBPS
+ Decent download speed on mobile network could vary from 10 to 40MBPS
+ 
+ With 1 Mbps upload speed a 5 MB file would on a single thread would take > 5 seconds.
+ On a 4 core processor breaking it to 4 chunks should take ~1second.
+ 
+ Also S3 could scale horizontally with support of large number of concurrent connections (3000-5000). Further fine-tuning is possible with file naming convention and  including varying prefixes of file name also should help.
+ 
