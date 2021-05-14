@@ -14,8 +14,6 @@
 
 [Improvised Architecture](#improvised-architecture)
 
-[Ambitious - next steps](#ambitious---next steps)
-
 [Additional Features](#additional-features)
   * [Files via email](#files-via-email)
   * [Realtime signature streaming](#realtime-signature-streaming)
@@ -23,6 +21,8 @@
   * [Priority Chunk](#priority-chunk)
   * [Signature chunk identification](#signature-chunk-identification)
   * [Push notification](#push-notification)
+
+[Ambitious - next steps](#ambitious---next-steps)
 
  [API](#api)
  
