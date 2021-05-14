@@ -119,10 +119,15 @@ Once modified chunks are uploaded a serveless function(AWS lamda) could trigger 
 
 Thinking beyond static chunks and acheiving cloud provider neutrality. In a way to speed-up upload/download we may get more and more closely tied to the cloud provider(AWS) and later a migration to a different provider may be a huge task. Breaking the file to a grid comprising of cells is an attempt to have APIs that are cloud provider neutral. Inspiration has been taken from geo-spatial indexing.
 
+#### Advantages
 - api would tak in terms of cells, say upload cells 10-10000
 - get cells 3000-4000
+- Also approach to cell would help in capturing dynamic signature chunks of varied shapes effectively
 
-These calls would translate appropriate cloud provider call, there by acheiving neutrality.
+#### Disadvantages
+- more work involved in coming up with a neutral api (but worth the effort to target large enterprise customers as large enterprises may be adamant on the provider app support)
+
+These API calls would translate appropriate cloud provider call, there by acheiving neutrality.
 Also upload and download speed may vary from one particpant to another - there by api could deal with dynamic size of upload/download chunks.
 
 ## API
