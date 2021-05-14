@@ -122,7 +122,7 @@ Thinking beyond static chunks and acheiving cloud provider neutrality. In a way 
 #### Advantages
 - api would tak in terms of cells, say upload cells 10-10000
 - get cells 3000-4000
-- Also approach to cell would help in capturing dynamic signature chunks of varied shapes effectively
+- Also a cell based approach would help in capturing dynamic signature chunks of varied shapes effectively
 
 #### Disadvantages
 - more work involved in coming up with a neutral api (but worth the effort to target large enterprise customers as large enterprises may be adamant on the provider app support)
